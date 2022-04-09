@@ -6,5 +6,5 @@ urlpatterns=[
     path('cargo/', CargoAPIView.as_view(),name='cargo_empleado'),
     path('departamento/', DepartamentoAPIView.as_view(),name='departamento_empleado'),
     path('empleado/',EmpleadosListCreateAPIView.as_view(),name='empleado'),
-    path('empleado/gestionar/<int:pk>/',EmpleadosRetrieveUpdateDestroyAPIView.as_view(),name='empleado_gestionar')
+    path('gestionar/<int:pk>/',EmpleadosRetrieveUpdateDestroyAPIView.as_view(),name='empleado_gestionar')
 ]
