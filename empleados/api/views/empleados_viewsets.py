@@ -44,33 +44,6 @@ class EmpleadosViewSet(viewsets.ModelViewSet):
         return Response({'error': 'No existe un empleado con esos datos'}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EmpleadosListCreateAPIView(viewsets.ModelViewSet):
-    serializer_class = EmpleadosSerializer
-    queryset = EmpleadosSerializer.Meta.model.objects.filter(state=True)
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({'message': 'Empleado creado correctamente!'}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class EmpleadosRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = EmpleadosSerializer
-
-    def get_queryset(self, pk=None):
-        if pk is None:
-            return self.get_serializer().Meta.model.objects.filter(state=True)
-        else:
-            return self.get_serializer().Meta.model.objects.filter(id=pk, state=True).first()
-
-    def patch(self, request, pk=None):
-        if self.get_queryset(pk):
-            empleado_serializer = self.serializer_class(self.get_queryset(pk))
-            return Response(empleado_serializer.data, status=status.HTTP_200_OK)
-        return Response({'error': 'No existe un empleado con esos datos'}, status=status.HTTP_400_BAD_REQUEST)
-
     
 
     
