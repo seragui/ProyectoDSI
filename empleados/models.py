@@ -51,9 +51,9 @@ class Empleados(BaseModel):
     fecha_contratacion = models.DateField(
         'Fecha de Contratacion', auto_now=False, auto_now_add=False, blank=False, null=False)
     id_cargo = models.ForeignKey(
-        'Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
+        'Cargo', verbose_name='Cargo', on_delete=models.CASCADE, null=True)
     id_departamento = models.ForeignKey(
-        'Departamento', verbose_name='Departamento', on_delete=models.CASCADE)
+        'Departamento', verbose_name='Departamento', on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = ("Empleado")
