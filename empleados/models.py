@@ -50,6 +50,7 @@ class Empleados(BaseModel):
     ciudad = models.CharField('Ciudad', max_length=50, blank=False, null=False)
     telefono = models.IntegerField('Telefono', blank=False, null=False)
     sexo = models.CharField('Sexo', max_length=1)
+    email = models.EmailField('Email', max_length=254, blank=False, null=False, default='email')
     fecha_contratacion = models.DateField(
         'Fecha de Contratacion', auto_now=False, auto_now_add=False, blank=False, null=False)
     id_cargo = models.ForeignKey(
