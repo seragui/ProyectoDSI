@@ -32,7 +32,7 @@ class EmpleadosViewSet(viewsets.ModelViewSet):
 
             if empleado_serializer.is_valid():
                 empleado_serializer.save()
-                return Response(empleado_serializer.data, status=status.HTTP_200_OK)
+                return Response({'message':'Empleado modificado correctamente'}, status=status.HTTP_200_OK)
             return Response(empleado_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):

@@ -8,14 +8,15 @@ class EmpleadosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Empleados
         exclude = ('state', 'created_date', 'modified_date', 'deleted_date')
+
 """
     def to_representation(self, instance):
         return{
             'id': instance.id,
             'nombres': instance.nombres,
             'apellidos': instance.apellidos,
-            'fecha_nacimiento': instance.fecha_nacimiento fecha_nacimiento, 
-            'nacionalidad': instance.nacionalidad, 
+            'fecha_nacimiento': instance.fecha_nacimiento,
+            'nacionalidad': instance.nacionalidad,
             'dui': instance.dui,
             'isss': instance.isss,
             'nup': instance.nup,

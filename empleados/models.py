@@ -41,8 +41,10 @@ class Empleados(BaseModel):
     nacionalidad = models.CharField(
         'Nacionalidad', max_length=50, blank=False, null=False)
     dui = models.IntegerField('DUI', blank=False, null=False, unique=True)
-    isss = models.IntegerField('Numero de Afiliado', blank=False, null=False, unique=True)
-    nup = models.IntegerField('Numero de Pensionado', blank=False, null=False, unique=True)
+    isss = models.IntegerField(
+        'Numero de Afiliado', blank=False, null=False, unique=True)
+    nup = models.IntegerField('Numero de Pensionado',
+                              blank=False, null=False, unique=True)
     direccion = models.TextField(
         'Direccion', max_length=400, blank=False, null=False)
     ciudad = models.CharField('Ciudad', max_length=50, blank=False, null=False)
@@ -51,9 +53,9 @@ class Empleados(BaseModel):
     fecha_contratacion = models.DateField(
         'Fecha de Contratacion', auto_now=False, auto_now_add=False, blank=False, null=False)
     id_cargo = models.ForeignKey(
-        'Cargo', verbose_name='Cargo', on_delete=models.CASCADE, null=True)
+        'Cargo', verbose_name='Cargo', on_delete=models.CASCADE, blank=False, null=False)
     id_departamento = models.ForeignKey(
-        'Departamento', verbose_name='Departamento', on_delete=models.CASCADE, null=True)
+        'Departamento', verbose_name='Departamento', on_delete=models.CASCADE, blank=False, null=False)
 
     class Meta:
         verbose_name = ("Empleado")
